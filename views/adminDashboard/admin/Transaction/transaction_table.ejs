@@ -1,0 +1,41 @@
+  
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+  <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary">Waiting for payment</h6>
+  </div>
+  <div class="card-body">
+      <div class="table-responsive">
+          <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+              <thead>
+                  <tr>
+                      <th style="width:5%;">No.</th>
+                      <th style="width:15%;">Name</th>
+                      <th style="width:15%;">Phone Number</th>                      
+                      <th style="width:25%;">Address</th>
+                      <th style="width:25%;">Item</th>
+                      <th style="width:15%;">Total</th>                                                                
+                  </tr>
+              </thead>
+              <tbody>
+                <% transactionsData.map((items, index) => { %>
+                    <tr>
+                        <td><%= index + 1 %></td>
+                        <td><%= items.fullName %></td>
+                        <td><%= items.phoneNumber %></td>
+                        <td><%= items.address %></td>                        
+                        <td>
+                            <p>
+                                <% items.transactionItem.map((item, index) => { %>
+                                    <%= item.name %> (<%= item.quantity %>pcs),<br>
+                                <% }) %>
+                            </p>
+                        </td>
+                        <td><%= items.total %></td>                                                                      
+                    </tr>
+                <% }) %>
+              </tbody>
+          </table>
+      </div>
+  </div>
+</div>
