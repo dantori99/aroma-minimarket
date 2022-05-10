@@ -1,0 +1,36 @@
+{
+  "name": "useroauth",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "5.15.3",
+    "bcrypt": "^5.0.1",
+    "bcryptjs": "^2.4.3",
+    "bootstrap": "4.6.0",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "datatables.net-bs4": "1.10.24",
+    "dotenv": "^16.0.0",
+    "ejs": "^3.1.7",
+    "express": "^4.17.3",
+    "express-flash": "^0.0.2",
+    "express-session": "^1.17.2",
+    "jquery": "3.6.0",
+    "jquery.easing": "^1.4.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.3.1",
+    "mongoose-delete": "^0.5.4",
+    "mongoose-unique-validator": "^3.0.0",
+    "path": "^0.12.7",
+    "startbootstrap-sb-admin-2": "^4.1.4",
+    "validator": "^13.7.0"
+  }
+}
