@@ -1,6 +1,9 @@
 const { Router } = require('express');
 const router = Router();
 
+const Admin = require('../models/Admin')
+const jwt = require('jsonwebtoken');
+
 const {
     get_admin_sign_in,
     get_admin_sign_up,
@@ -9,23 +12,33 @@ const {
     sign_out_admin
 } = require('../controllers/admin/adminAuthController');
 
-router.get('/auth/admin/signup', (req, res) => {
-    const alertMessage = req.flash('alertMessage');
-    const alertStatus = req.flash('alertStatus');
-    const alert = { message: alertMessage, status: alertStatus };
-    res.render('adminDashboard/registration.ejs', { alert: alert });
-});
+// router.get('/auth/admin/signup', (req, res) => {
+//     const alertMessage = req.flash('alertMessage');
+//     const alertStatus = req.flash('alertStatus');
+//     const alert = { message: alertMessage, status: alertStatus };
+//     res.render('admin/registration.ejs', { alert: alert });
+// });
 
 router.get('/auth/admin/signin', (req, res) => {
     const alertMessage = req.flash('alertMessage');
     const alertStatus = req.flash('alertStatus');
     const alert = { message: alertMessage, status: alertStatus };
-    res.render('adminDashboard/login.ejs', { alert: alert });
+    res.render('admin/login/login.ejs', { alert: alert });
 });
 
-router.get('/auth/admin/adminDashboard', (req, res) => {
-    let { username } = req.body;
-    res.render('adminDashboard/index.ejs', { username: username });
+router.get('/auth/admin/adminDashboard', async (req, res) => {
+
+    const alertMessage = req.flash('alertMessage');
+    const alertStatus = req.flash('alertStatus');
+    const alert = { message: alertMessage, status: alertStatus };
+
+    const checkToken = jwt.decode(req.cookies.jwt);
+
+    if (checkToken == null) return
+
+    const checkAdmin = await Admin.findOne({ _id: checkToken.id });
+
+    res.render('index.ejs', { username: checkAdmin.username, alert: alert });
 });
 
 router.get('/auth/signin', get_admin_sign_in);

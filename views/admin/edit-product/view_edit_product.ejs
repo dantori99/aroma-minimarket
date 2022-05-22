@@ -1,9 +1,9 @@
-<%- include('partials/header.ejs') %>
+<%- include('../../partials/header.ejs') %>
 
     <!-- Page Wrapper -->
     <div id="wrapper">
 
-        <%- include('partials/sidebar') %>
+        <%- include('../../partials/sidebar') %>
 
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
@@ -11,13 +11,16 @@
             <!-- Main Content -->
             <div id="content">
 
-                <%- include('partials/navbar.ejs') %>
+                <%- include('../../partials/navbar.ejs') %>
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
-                    <!-- Page Heading -->
-                    <h1 class="h3 mb-4 text-gray-800">Coming Soon</h1>
+                    <!-- Alert -->
+                    <%- include('alert.ejs') %>
+
+                    <!-- Form Content -->
+                    <%- include('form_edit_product.ejs') %>
 
                 </div>
                 <!-- /.container-fluid -->
@@ -25,7 +28,7 @@
             </div>
             <!-- End of Main Content -->
 
-            <%- include('partials/footer') %>
+            <%- include('../../partials/footer') %>
 
         </div>
         <!-- End of Content Wrapper -->
@@ -58,4 +61,15 @@
         </div>
     </div>
 
-<%- include('partials/js.ejs') %>
+    <script>
+        const uploadField = document.getElementById("image");
+
+        uploadField.onchange = function() {
+            if(this.files[0].size > 500000){
+               alert("File is too big!");
+               this.value = "";
+            };
+        };
+    </script>
+
+<%- include('../../partials/js.ejs') %>

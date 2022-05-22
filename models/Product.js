@@ -4,17 +4,22 @@ const uniqueValidator = require('mongoose-unique-validator');
 
 const ProductSchema = new mongoose.Schema(
     {
-        name: {
-            type: 'string',
+        namaProduk: {
+            type: String,
             lowercase: true,
             required: true
         },
-        price: {
-            type: 'string',
+        harga: {
+            type: String,
             required: true
         },
-        quantity: {
-            type: 'number',
+        kuantitas: {
+            type: Number,
+            required: true
+        },
+        tanggalMasuk: {
+            type: Date,
+            default: Date.now,
             required: true
         }
     }

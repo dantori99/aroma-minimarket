@@ -1,0 +1,36 @@
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Add New Product</h6>
+    </div>
+    <div class="card-body">
+        <form action="/admin/products/add" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input name="name" type="text" class="form-control" id="name" placeholder="Enter product's name" required>              
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlFile1">Image</label>
+              <input name="images" type="file" accept="image/*" class="form-control-file" id="image" required>
+              <small class="form-text text-muted">* Images can only be under 500kB.</small>
+            </div>            
+            <div class="form-group">
+                <label for="name">Price</label>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">Rp</span>
+                  </div>
+                  <input name="price" type="number" class="form-control" id="price" placeholder="Enter product's price" required>                  
+                </div>
+                <small class="form-text text-muted">* Input number only.</small>
+            </div>
+            <div class="form-group">
+              <label for="description">Description</label>
+              <textarea name="description" class="form-control" id="description" rows="3" placeholder="Enter product's description" required></textarea>
+            </div>
+            <div class="d-flex flex-row-reverse mt-3">
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <a href="/admin/products" class="btn btn-danger mr-2">Cancel</a>
+            </div>
+          </form>
+    </div>
+</div>

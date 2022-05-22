@@ -4,13 +4,12 @@ const uniqueValidator = require('mongoose-unique-validator');
 
 const TransactionSchema = new mongoose.Schema(
     {
-        adminCode: {
+        kodeAdmin: {
             type: 'string',
             required: true
         },
         barang: {
-            type: 'string',
-            required: true
+            
         },
         total: {
             type: 'string',

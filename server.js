@@ -16,6 +16,7 @@ const Admin = require('./routes/adminAuthRoutes');
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, 'public')));
 app.use('/sb-admin-2', express.static(path.join(__dirname, 'node_modules/startbootstrap-sb-admin-2')));
 
 app.set('views', path.join(__dirname, 'views'));
@@ -33,7 +34,6 @@ app.use(cors({
 //   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
 //   next();
 // });
-
 
 // User session
 app.use(session({
